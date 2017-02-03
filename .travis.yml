@@ -1,0 +1,12 @@
+language: python
+python:
+  - "3.5"
+# command to install dependencies
+install:
+ - pip install pipenv
+ - pipenv shell
+ - pipenv install
+ - "pip install https://github.com/hudsonbrendon/boleto-cloud-python/archive/master.zip"
+
+# command to run tests
+script: ./runtests
