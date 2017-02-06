@@ -1,3 +1,3 @@
-from .boletocloud import Boleto
+from .boletocloud import Ticket
 
-__all__ = ['Boleto']
+__all__ = ['Ticket']

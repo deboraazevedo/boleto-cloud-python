@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import requests
+import json
 from requests.auth import HTTPBasicAuth
 from .exception import ConnectionError, AuthenticationError
 
 
-class Boleto(object):
+class Ticket(object):
 
     def __init__(self, token):
         self.__token = token
@@ -13,14 +14,20 @@ class Boleto(object):
 
     @property
     def token(self):
-    	'''Returns the token for access API.'''
-    	return self.__token
+        '''Returns the token for access API.'''
+        return self.__token
 
     def get_url(self, resource=''):
-    	'''Returns the url.'''
-    	return '{0}{1}'.format(self.__url, resource)
+        '''Returns the url.'''
+        return '{0}{1}'.format(self.__url, resource)
 
-    def authenticate(self, resource=''):
-    	'''Authenticates all requests.'''
-    	return requests.get(self.get_url(resource), auth=HTTPBasicAuth(self.token, 'token'))
+    @property
+    def authenticate(self):
+        '''Authenticate all requests.'''
+        return HTTPBasicAuth(self.token, 'token') 
 
+    def search(self, token_ticket):
+        '''Returns the boleto especify in token_ticket.'''
+        with open('ticket.pdf', 'wb') as ticket:
+            file = requests.get(self.get_url(token_ticket), auth=self.authenticate)
+            ticket.write(file.content)
