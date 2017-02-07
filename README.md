@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hudsonbrendon/boleto-cloud-python.svg?branch=master)](https://travis-ci.org/hudsonbrendon/boleto-cloud-python)
 
-[boletocloud.com] API integration library (http://www.boletocloud.com)
+API integration library http://www.boletocloud.com
 
 ![Logo](logo.png)
 
