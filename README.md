@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/hudsonbrendon/boleto-cloud-python.svg?branch=master)](https://travis-ci.org/hudsonbrendon/boleto-cloud-python)
 
-Library of integration with the API of [boletocloud.com](http://www.boletocloud.com)
+[boletocloud.com] API integration library (http://www.boletocloud.com)
 
 ![Logo](logo.png)
 
@@ -21,9 +21,9 @@ $ python setup.py install
 # Usage
 
 
-To access an API, you first have to create an account and generate a token in: [app.boletocloud.com/api](https://app.boletocloud.com/api)
+To access an API, first you have to create an account and generate a token at: [app.boletocloud.com/api](https://app.boletocloud.com/api)
 
-With the token properly generated, pass as a string parameter in the instantiation of your object as shown in the code below:
+With the token properly generated, pass the token as a string parameter in the instantiation of your object, as shown in the code below:
 
 ```python
 >>> from boletocloud import Ticket
@@ -37,7 +37,7 @@ With the token properly generated, pass as a string parameter in the instantiati
 >>> ticket.create(self, bank, agency, number, wallet, recipient_name, recipient_cprf, recipient_address_zip, recipient_address_uf, recipient_address_locale, recipient_address_neighborhood, recipient_address_street, recipient_address_number, recipient_address_complement, emission, pay, document, ticket_number, title, value, payer_name, payer_cprf, payer_address_zip, payer_address_uf, payer_address_locale, payer_address_neighborhood, payer_address_street, payer_address_number, payer_address_complement, instruction)
 ```
 
-A good option to inform the parameters in a simpler way is to create a dictionary with the data in this way:
+A good option to inform the parameters in a simpler way is to create a dictionary with the data, this way:
 
 ```python
 params = {
@@ -72,17 +72,17 @@ params = {
 	'boleto.instrucao': 'Atenção! NÃO RECEBER ESTE BOLETO.',   
 }
 ```
-And pass as a dictionary to the create method as shown in the example below:
+And pass the dictionary to create a method as shown in the example below:
 
 ```python
 >>> ticket.create(**params)
 ```
 
-This method creates the ticket in the system and returns the ticket in PDF format with the data entered in the parameters.
+This method creates the ticket in the system and returns the ticket in PDF format with the inserted data from the parameters.
 
 # Search a ticket
 
-The **Ticket** class has the **search()** method, this method receives as a parameter the ticket token that will allow you to access the ticket. Go to the administrative panel [app.boletocloud.com/api](https://app.boletocloud.com/api]) and in the information about the desired ticket you will find the token, pass the token as a parameter to the method and you will have the Download automatic file as PDF is shown in the code below:
+The **Ticket** class has the method  **search()**. This method receives as a parameter the token that will allow you to access the ticket. Go to the administrative dashboard [app.boletocloud.com/api](https://app.boletocloud.com/api]) and you will find the token in the information about the wanted. Then, pass the token as a parameter to the method and you will have the Download automatic file in PDF, as it is shown in the code below:
 
 ```python
 >>> ticket.search('token_ticket')
@@ -110,8 +110,8 @@ If you need the API endpoint url, we have **get_url()** at your disposal, see an
 
 # Future implementations
 
-Noting that the [boletocloud.com] API (http://www.boletocloud.com) is still on BETA, as the company updates it, we will be implementing the new features.
-For more information regarding API, access: [www.boletocloud.com/app/dev/api](https://www.boletocloud.com/app/dev/api)
+Note that the [boletocloud.com] API (http://www.boletocloud.com) is still on BETA, as the company updates it, we will be implementing new features.
+For more information regarding the API, access: [www.boletocloud.com/app/dev/api](https://www.boletocloud.com/app/dev/api)
 
 # Bugs and improvements
 
